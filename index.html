@@ -12,10 +12,9 @@
             font-family: 'Poppins', sans-serif;
             background-color: #f0fdf4;
             background-image: url('https://media.discordapp.net/attachments/1272505648570957848/1406287865800949892/cd1e20ab-3800-4c03-91c1-e64cd918ac01.png?ex=68a1eb22&is=68a099a2&hm=51e5502bd9764bf5e2ecc0f7ddc7323467d3a057dfe92a81387f386313c17d95&=&format=webp&quality=lossless&width=988&height=988');
-            background-size: 300px;
-            background-repeat: repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
             background-attachment: fixed;
-            background-blend-mode: overlay;
         }
         
         .melon-gradient {
@@ -81,11 +80,6 @@
             background: linear-gradient(90deg, #facc15, #84cc16);
             border-radius: 3px;
         }
-        
-        .melon-pattern {
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%2384cc16" opacity="0.1"/></svg>');
-            background-size: 100px;
-        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -101,12 +95,11 @@
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="nav-item text-white font-medium hover:text-yellow-200">Home</a>
-                    <a href="#" class="nav-item text-white font-medium hover:text-yellow-200">Store</a>
-                    <a href="#" class="nav-item text-yellow-300 font-bold">Regels</a>
-                    <a href="#" class="nav-item text-white font-medium hover:text-yellow-200">Solliciteren</a>
-                    <a href="#" class="nav-item text-white font-medium hover:text-yellow-200">Dashboard</a>
-                    <a href="#" class="nav-item text-white font-medium hover:text-yellow-200">Discord</a>
+                    <a href="#home" class="nav-item text-white font-medium hover:text-yellow-200">Home</a>
+                    <a href="https://store.meloenrp.com" class="nav-item text-white font-medium hover:text-yellow-200">Store</a>
+                    <a href="#regels" class="nav-item text-yellow-300 font-bold">Regels</a>
+                    <a href="#solliciteren" class="nav-item text-white font-medium hover:text-yellow-200">Solliciteren</a>
+                    <a href="https://discord.gg/TCVfz6eK47" class="nav-item text-white font-medium hover:text-yellow-200">Discord</a>
                 </nav>
                 
                 <button class="md:hidden text-white">
@@ -120,361 +113,111 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Sidebar Navigation -->
-            <aside class="lg:w-1/4">
-                <div class="melon-card p-6 sticky top-4">
-                    <h2 class="text-xl font-bold mb-4 text-green-700">Inhoudsopgave</h2>
-                    <ul class="space-y-3">
-                        <li><a href="#algemene-regels" class="text-green-600 hover:text-green-800 font-medium">Algemene Regels</a></li>
-                        <li><a href="#artikel1" class="text-green-600 hover:text-green-800 font-medium">Artikel 1. VDM</a></li>
-                        <li><a href="#artikel2" class="text-green-600 hover:text-green-800 font-medium">Artikel 2. RDM</a></li>
-                        <li><a href="#artikel3" class="text-green-600 hover:text-green-800 font-medium">Artikel 3. Fail RP/Powergaming</a></li>
-                        <li><a href="#artikel4" class="text-green-600 hover:text-green-800 font-medium">Artikel 4. Cop Baiten</a></li>
-                        <li><a href="#artikel5" class="text-green-600 hover:text-green-800 font-medium">Artikel 5. NVOL</a></li>
-                        <li><a href="#artikel6" class="text-green-600 hover:text-green-800 font-medium">Artikel 6. New Life Rule</a></li>
-                        <li><a href="#artikel7" class="text-green-600 hover:text-green-800 font-medium">Artikel 7. OOC Praten</a></li>
-                        <li><a href="#artikel8" class="text-green-600 hover:text-green-800 font-medium">Artikel 8. Scammen</a></li>
-                        <li><a href="#artikel9" class="text-green-600 hover:text-green-800 font-medium">Artikel 9. Ghost Peaken</a></li>
-                        <li><a href="#artikel10" class="text-green-600 hover:text-green-800 font-medium">Artikel 10. Gedragsregels</a></li>
-                        <li><a href="#onderwereld" class="text-green-600 hover:text-green-800 font-medium">Onderwereld Regels</a></li>
-                        <li><a href="#overheid" class="text-green-600 hover:text-green-800 font-medium">Overheid Regels</a></li>
-                    </ul>
+        <!-- Home Sectie -->
+        <section id="home" class="melon-card p-8 mb-8">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">🍉 Meloen Roleplay – De meest unieke stad ter wereld! 🍉</h2>
+            <p class="mb-4 text-gray-700">*Geen standaard copy-paste stad, maar écht uniek!*</p>
+            <blockquote class="mb-4 text-gray-600">
+                <p>🔹 <strong>Wapenloodsen</strong> – Maak je eigen wapens en neem personeel in dienst.</p>
+                <p>🔹 <strong>Unieke drugsloodsen</strong> – Groeien mee met jouw level! Huur mensen in en check via de computer precies wie hoeveel werk verricht. *(uniek in zijn soort)*</p>
+                <p>🔹 <strong>Autodealersysteem</strong> – Niet alleen een cardealer & luxury shop, maar ook een echte <strong>2e hands dealer op 4024</strong>! Een gezellige plek om auto’s te scoren of te verkopen.</p>
+                <p>🔹 <strong>Piloot-job</strong> – Breng en haal passagiers naar één van de <strong>7 vliegvelden</strong> en verdien hier goed mee.</p>
+                <p>🔹 <strong>Parachute/Basejump locaties</strong> – Spring via gele parachute spots de lucht in en vlieg overal naartoe waar jij wilt!</p>
+            </blockquote>
+
+            <h3 class="text-2xl font-bold mb-4 text-green-600">🔷 Huizensysteem – nergens zo uniek als in Meloen!</h3>
+            <p class="mb-4 text-gray-700">👉 <em>ELK huis dat je kent uit GTA is bewoonbaar!</em> 🏠</p>
+            <p class="mb-4 text-gray-700">Alle huizen, villa’s en appartementen die normaal gesloten zijn in andere steden, zijn bij ons <strong>wel open</strong>.</p>
+            <ul class="list-disc pl-5 mb-4 text-gray-700">
+                <li>✅ Koop jij een woning? Dan blijft dit huis ook écht van jou – zelfs als je niet in de stad bent.</li>
+                <li>✅ Nooit meerdere spelers in hetzelfde pand!</li>
+                <li>✅ Geef vrienden sleutels of ontvang spullen via je brievenbus.</li>
+                <li>🏡 Beschikbare huizen = <strong>witte blipjes op de map</strong>.</li>
+                <li>📅 Elke dag komen er nieuwe huizen vrij van spelers die langer dan een jaar inactief zijn geweest.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold mb-4 text-green-600">🍉 Extra Unieke Features 🍉</h3>
+            <blockquote class="mb-4 text-gray-600">
+                <p>🔹 Actieve <strong>Staff leden</strong> met een <strong>wachtkamer systeem</strong> (geen irritante tickets meer).</p>
+                <p>🔹 <strong>M.A.R.S.O.F. (Special Forces)</strong> leger.</p>
+                <p>🔹 Tunnels dwars door bergen heen.</p>
+                <p>🔹 Bruggen naar het eiland.</p>
+                <p>🔹 Nieuw mega-eiland in het noorden.</p>
+                <p>🔹 Bruggen over het grote meer.</p>
+                <p>🔹 Lift naar bovenop de Maze Bank.</p>
+                <p>🔹 Skilift naar Mount Chiliad.</p>
+                <p>🔹 Treinstations én de mogelijkheid om door de stad te reizen met de trein. 🚉</p>
+            </blockquote>
+
+            <h2 class="text-3xl font-bold mb-6 text-green-700">🍉 Meloen Roleplay is écht uniek en biedt ongeëvenaarde features die je nergens anders zult vinden. 🍉</h2>
+            <p class="text-gray-700">🍉 <em>En geloof ons, daar zijn we knettertrots op!</em> 🍉</p>
+            <p class="text-gray-700">📸 <strong>Check de foto’s hierboven</strong> …en zie direct dingen die je nooit eerder hebt gezien!</p>
+            <p class="text-gray-700">***Meloen Groet!*** 🍉</p>
+        </section>
+
+        <!-- Regels Sectie -->
+        <section id="regels" class="melon-card p-8 mb-8">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">Reglement Meloen Roleplay</h2>
+            <p class="mb-4 text-gray-700">Hieronder vind je de regels die gelden op Meloen Roleplay. Lees deze zorgvuldig door om een plezierige ervaring voor iedereen te waarborgen.</p>
+            <p>De regels zijn hetzelfde als eerder vermeld, dus behoud de regels zoals ze zijn.</p>
+        </section>
+
+        <!-- Solliciteren Sectie -->
+        <section id="solliciteren" class="melon-card p-8 mb-8">
+            <h2 class="text-3xl font-bold mb-6 text-green-700">Solliciteren</h2>
+            <p class="mb-6 text-gray-700">Solliciteer voor een van onze functies en word onderdeel van het Meloen Roleplay team!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- KMAR -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Koninklijke Marechaussee</h3>
+                    <p class="mb-4 text-gray-700">Word lid van onze Koninklijke Marechaussee en help onze stad veilig te houden.</p>
+                    <a href="#kmar-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
                 </div>
-            </aside>
 
-            <!-- Content -->
-            <div class="lg:w-3/4 space-y-8">
-                <!-- Hero Section -->
-                <section class="melon-card p-8 melon-pattern">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="flex-1">
-                            <h2 class="text-3xl font-bold mb-4 text-green-800">Welkom bij Meloen Roleplay</h2>
-                            <p class="text-lg mb-6 text-gray-700">Op Meloen Roleplay hanteren we duidelijke regels om het spelplezier voor iedereen te waarborgen. Lees het onderstaande reglement zorgvuldig door voordat je deelneemt aan ons tropische roleplay avontuur.</p>
-                            <div class="flex flex-wrap gap-4">
-                                <button class="melon-btn px-6 py-3 rounded-full font-bold text-white">Direct spelen</button>
-                                <button class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-full font-bold text-white transition">Word lid</button>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <img src="https://media.discordapp.net/attachments/1272505648570957848/1406287865800949892/cd1e20ab-3800-4c03-91c1-e64cd918ac01.png?ex=68a1eb22&is=68a099a2&hm=51e5502bd9764bf5e2ecc0f7ddc7323467d3a057dfe92a81387f386313c17d95&=&format=webp&quality=lossless&width=400&height=400" 
-                                 alt="Tropische meloenen sfeer" 
-                                 class="rounded-xl border-4 border-yellow-300 shadow-lg w-full">
-                        </div>
-                    </div>
-                </section>
+                <!-- Politie -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Politie</h3>
+                    <p class="mb-4 text-gray-700">Word een agent en handhaaf de wet in onze stad.</p>
+                    <a href="#politie-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
 
-                <!-- Algemene Regels -->
-                <section id="algemene-regels" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Algemene Regels</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-yellow-400 rounded-full w-6 h-6 flex items-center justify-center mr-4 mt-1 flex-shrink-0 text-white font-bold">1</div>
-                            <p class="text-gray-700">Alle straffen worden verdubbeld als je minder dan 24 uur speeltijd hebt op Meloen Roleplay.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-yellow-400 rounded-full w-6 h-6 flex items-center justify-center mr-4 mt-1 flex-shrink-0 text-white font-bold">2</div>
-                            <p class="text-gray-700">De straffen blijven maximaal 60 dagen op je strafblad staan.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-yellow-400 rounded-full w-6 h-6 flex items-center justify-center mr-4 mt-1 flex-shrink-0 text-white font-bold">3</div>
-                            <p class="text-gray-700">Development, (Head) Management, Hoge Raad, en Supervisor hebben het recht om hun eigen zaak te behandelen.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-yellow-400 rounded-full w-6 h-6 flex items-center justify-center mr-4 mt-1 flex-shrink-0 text-white font-bold">4</div>
-                            <p class="text-gray-700">Maak binnen 24 uur een staffzaak, anders kan een staff niks meer voor je betekenen.</p>
-                        </div>
-                    </div>
-                </section>
+                <!-- Ambulance -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Ambulance</h3>
+                    <p class="mb-4 text-gray-700">Help mensen in nood als ambulancemedewerker.</p>
+                    <a href="#ambulance-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
 
-                <!-- Artikel 1 -->
-                <section id="artikel1" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 1. VDM (Vehicle Deathmatch)</h2>
-                    <p class="mb-4 text-gray-700">Het doelbewust aanrijden en/of hinderen van anderen met een voertuig is strafbaar. Dit geldt ook als iemand met opzet wordt aangereden terwijl hij/zij stil staat op de weg. Verkeersongevallen vallen hier niet onder.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: Permanent verbannen, met mogelijkheid tot unban ticket na een maand</li>
-                        </ul>
-                    </div>
+                <!-- Advocatuur -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Advocatuur</h3>
+                    <p class="mb-4 text-gray-700">Verdedig burgers in rechtszaken als advocaat.</p>
+                    <a href="#advocatuur-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
 
-                    <div class="mt-6 bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-yellow-700">Opmerking:</h3>
-                        <p class="text-gray-700">Bij Massa VDM (3 personen of meer) gelden zwaardere straffen:</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                            <li>1e keer: 1 dag ban</li>
-                            <li>2e keer: 1 week ban</li>
-                            <li>3e keer: 2 weken ban</li>
-                            <li>4e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
+                <!-- Journalist -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Journalist</h3>
+                    <p class="mb-4 text-gray-700">Breng het laatste nieuws naar onze burgers.</p>
+                    <a href="#journalist-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
 
-                <!-- Artikel 2 -->
-                <section id="artikel2" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 2. RDM (Random Deathmatch)</h2>
-                    <p class="mb-4 text-gray-700">Het is verboden om iemand te vermoorden zonder enige betrokkenheid in het spelverloop of zonder roleplay. Het uitloven van een beloning op iemands hoofd is ook niet toegestaan.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 2 dagen ban (wapen inname vanaf 3e keer)</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: Permanent verbannen, met mogelijkheid tot unban ticket na een maard</li>
-                        </ul>
-                    </div>
-                </section>
+                <!-- Pechhulp -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Pechhulp</h3>
+                    <p class="mb-4 text-gray-700">Help burgers met pech langs de weg.</p>
+                    <a href="#pechhulp-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
 
-                <!-- Artikel 3 -->
-                <section id="artikel3" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 3. Fail RP en Powergaming</h2>
-                    <p class="mb-4 text-gray-700">Powergaming is het creëren van een oneerlijk voordeel in roleplay. Fail RP is het niet meewerken aan roleplay of onrealistisch handelen.</p>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Voorbeelden van Powergaming:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Combinatie van acties in één /me commando</li>
-                            <li>Auto terug in garage zetten tijdens scenario</li>
-                            <li>Misbruik maken van TP locaties</li>
-                            <li>Emote abuse</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: 2 weken ban</li>
-                            <li>6e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 4 -->
-                <section id="artikel4" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 4. (Cop)Baiten</h2>
-                    <p class="mb-4 text-gray-700">Het opzettelijk uitlokken van ambtenaren of burgers met de intentie om te irriteren of uit te dagen is strafbaar.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 5 -->
-                <section id="artikel5" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 5. No Value Of Life (NVOL)</h2>
-                    <p class="mb-4 text-gray-700">Het niet waarderen van je leven, bijvoorbeeld door gevaarlijke acties terwijl er een wapen op je gericht staat.</p>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Voorbeelden:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Wapen pakken terwijl er een wapen op je gericht staat</li>
-                            <li>Met voertuig het water in rijden om arrestatie te ontlopen</li>
-                            <li>Porto gebruiken onder schot</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: 12 uur ban</li>
-                            <li>2e keer: 1 dag ban</li>
-                            <li>3e keer: 2 dagen ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: 2 weken ban</li>
-                            <li>6e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 6 -->
-                <section id="artikel6" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 6. New Life Rule</h2>
-                    <p class="mb-4 text-gray-700">Wanneer je dood wordt verklaard, moet je het vorige leven vergeten. Terugkomen naar een scenario is niet toegestaan.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 7 -->
-                <section id="artikel7" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 7. OOC Praten</h2>
-                    <p class="mb-4 text-gray-700">Het is ten alle tijden verboden om out of character te gaan in roleplay.</p>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Voorbeelden:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Praten in /me terwijl je dood bent</li>
-                            <li>Reports aanvragen via Twitter</li>
-                            <li>OOC opmerkingen maken tijdens scenario</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing (50 taken)</li>
-                            <li>2e keer: 100 taken</li>
-                            <li>3e keer: 8 uur ban</li>
-                            <li>4e keer: 16 uur ban</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 8 -->
-                <section id="artikel8" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 8. Scammen</h2>
-                    <p class="mb-4 text-gray-700">Het scammen van een burger is toegestaan tot een maximum van €5.000.000. Wapens en attachments mogen altijd gescamt worden. Giftcards en voertuigen scammen is verboden.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <div class="mb-4">
-                            <h4 class="font-medium text-green-700">5-10 miljoen:</h4>
-                            <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                                <li>1e keer: 3 dagen ban</li>
-                                <li>2e keer: 1 week ban</li>
-                                <li>3e keer: 2 weken ban</li>
-                                <li>4e keer: Permanent verbannen</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-green-700">10 miljoen+:</h4>
-                            <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                                <li>1e keer: 1 week ban</li>
-                                <li>2e keer: 2 weken ban</li>
-                                <li>3e keer: 3 weken ban</li>
-                                <li>4e keer: Permanent verbannen</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Artikel 9 -->
-                <section id="artikel9" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 9. Ghost Peaken</h2>
-                    <p class="mb-4 text-gray-700">Het schieten om hoeken zonder dat je lichaam zichtbaar is is niet toegestaan. Q-peaken (schieten in 3th person) is wel toegestaan.</p>
-                    
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 8 uur ban</li>
-                            <li>3e keer: 12 uur ban</li>
-                            <li>4e keer: 1 dag ban</li>
-                            <li>5e keer: 1 week ban</li>
-                            <li>6e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Artikel 10 -->
-                <section id="artikel10" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Artikel 10. Algemene Gedragsregels</h2>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">10.1 Schelden/spammen:</h3>
-                        <p class="text-gray-700">Overmatig schelden is niet toegestaan. Gericht schelden naar overheidsbanen is ten alle tijden verboden.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">10.2 Disrespect naar staff:</h3>
-                        <p class="text-gray-700">Respect voor staffleden is verplicht, ook als je het oneens bent met beslissingen.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">10.3 Nep Impersonatie:</h3>
-                        <p class="text-gray-700">Je mag je niet voordoen als ambtenaar, stafflid of gangmember.</p>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 12 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: Permanent verbannen</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Onderwereld Regels -->
-                <section id="onderwereld" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Onderwereld Regels</h2>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">O.1 Rippen:</h3>
-                        <p class="text-gray-700">Je mag iemand rippen als hij/zij een masker draagt, holster heeft, of duidelijk een wapen laat zien. Scammen binnen een gang is verboden.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">O.2 Eiland/Redzone:</h3>
-                        <p class="text-gray-700">Het eiland en noorden zijn eigen risico gebied. Je mag hier van alles geript worden zonder reden.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">O.3 Ganghuizen/Mansions:</h3>
-                        <p class="text-gray-700">Campen bij ganghuizen is niet toegestaan. Vluchten naar een ganghuis tijdens scenario is verboden.</p>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <p class="mb-2 text-gray-700">Meestal:</p>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: waarschuwing</li>
-                            <li>2e keer: 8 uur ban</li>
-                            <li>3e keer: 1 dag ban</li>
-                            <li>4e keer: 1 week ban</li>
-                            <li>5e keer: 1 maand ban + 3 maanden blacklist</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Overheid Regels -->
-                <section id="overheid" class="melon-card p-8">
-                    <h2 class="article-title text-2xl font-bold mb-6 text-green-700">Overheid Regels</h2>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">OH.1 Overheidfix Abuse:</h3>
-                        <p class="text-gray-700">Overheidfix mag alleen gebruikt worden voor VDM, niet voor normale ongelukken.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">OH.2 Newlife Abuse:</h3>
-                        <p class="text-gray-700">Je mag niet met newlife terugkomen in hetzelfde scenario.</p>
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">OH.3 Corruptie:</h3>
-                        <p class="text-gray-700">Deelname aan illegale activiteiten is verboden voor ambtenaren.</p>
-                    </div>
-
-                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-lg mb-2 text-green-700">Straffen:</h3>
-                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>1e keer: Strike + 1 dag ban</li>
-                            <li>2e keer: Ontslag + 1 dag ban</li>
-                            <li>Bij corruptie: 1-6 maanden ban + ontslag + blacklist</li>
-                        </ul>
-                    </div>
-                </section>
+                <!-- Staff -->
+                <div class="melon-card p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-green-700">Staff</h3>
+                    <p class="mb-4 text-gray-700">Word stafflid en help onze server draaiende te houden.</p>
+                    <a href="#staff-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -488,8 +231,8 @@
                     <p class="text-white font-bold text-xl">Meloen Roleplay</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-white hover:text-yellow-200">Discord</a>
-                    <a href="#" class="text-white hover:text-yellow-200">Support</a>
+                    <a href="https://discord.gg/TCVfz6eK47" class="text-white hover:text-yellow-200">Discord</a>
+                    <a href="https://discord.gg/a52ft7qtpS" class="text-white hover:text-yellow-200">Support</a>
                     <a href="#" class="text-white hover:text-yellow-200">Privacybeleid</a>
                     <a href="#" class="text-white hover:text-yellow-200">Contact</a>
                 </div>
