@@ -1,265 +1,426 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meloen Roleplay - Tropisch Roleplay Avontuur</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0fdf4;
-            background-image: url('https://media.discordapp.net/attachments/1272505648570957848/1406287865800949892/cd1e20ab-3800-4c03-91c1-e64cd918ac01.png?ex=68a1eb22&is=68a099a2&hm=51e5502bd9764bf5e2ecc0f7ddc7323467d3a057dfe92a81387f386313c17d95&=&format=webp&quality=lossless&width=988&height=988');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        
-        .melon-gradient {
-            background: linear-gradient(135deg, #84cc16 0%, #22c55e 50%, #15803d 100%);
-        }
-        
-        .melon-card {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .melon-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .nav-item {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #facc15;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-item:hover::after {
-            width: 100%;
-        }
-        
-        .melon-btn {
-            background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .melon-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .article-title {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .article-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, #facc15, #84cc16);
-            border-radius: 3px;
-        }
-    </style>
-</head>
-<body class="text-gray-800">
-    <!-- Header -->
-    <header class="melon-gradient shadow-lg">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <img src="https://media.discordapp.net/attachments/1272505648570957848/1406287865800949892/cd1e20ab-3800-4c03-91c1-e64cd918ac01.png?ex=68a1eb22&is=68a099a2&hm=51e5502bd9764bf5e2ecc0f7ddc7323467d3a057dfe92a81387f386313c17d95&=&format=webp&quality=lossless&width=200&height=200" 
-                         alt="Meloen Roleplay Logo" 
-                         class="h-16 w-16 rounded-full border-4 border-yellow-300 shadow-md">
-                    <h1 class="text-3xl font-bold text-white drop-shadow-lg">Meloen Roleplay</h1>
-                </div>
-                
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-item text-white font-medium hover:text-yellow-200">Home</a>
-                    <a href="https://store.meloenrp.com" class="nav-item text-white font-medium hover:text-yellow-200">Store</a>
-                    <a href="#regels" class="nav-item text-yellow-300 font-bold">Regels</a>
-                    <a href="#solliciteren" class="nav-item text-white font-medium hover:text-yellow-200">Solliciteren</a>
-                    <a href="https://discord.gg/TCVfz6eK47" class="nav-item text-white font-medium hover:text-yellow-200">Discord</a>
-                </nav>
-                
-                <button class="md:hidden text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+import React from "react";
+import { motion } from "framer-motion";
+import { Melon, Shield, Heart, MessageCircle, Users, Download, ExternalLink, Send, Rocket, Hammer, Plane, Ship, Map, Camera } from "lucide-react";
+
+// Small inline SVG 'melon slice' you can reuse
+const MelonSlice = ({ className = "w-10 h-10" }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden
+  >
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#ff7a7a" />
+        <stop offset="100%" stopColor="#ffb86b" />
+      </linearGradient>
+      <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stopColor="#2dd4bf" />
+        <stop offset="100%" stopColor="#16a34a" />
+      </linearGradient>
+    </defs>
+    <path d="M10 180 A170 170 0 0 1 190 180 Q100 160 10 180Z" fill="url(#g2)"/>
+    <path d="M20 165 A150 150 0 0 1 180 165 Q100 150 20 165Z" fill="#fde68a"/>
+    <path d="M30 150 A130 130 0 0 1 170 150 Q100 140 30 150Z" fill="url(#g1)"/>
+    {/* seeds */}
+    {Array.from({ length: 9 }).map((_, i) => (
+      <ellipse key={i} cx={50 + i * 12} cy={150 - (i % 3) * 4} rx="3.5" ry="6" fill="#111827" opacity="0.7" />
+    ))}
+  </svg>
+);
+
+const NavLink = ({ href, children }) => (
+  <a href={href} className="text-slate-900/90 hover:text-slate-900 font-medium transition-colors">
+    {children}
+  </a>
+);
+
+const Section = ({ id, children, className = "" }) => (
+  <section id={id} className={"relative py-20 " + className}>
+    {children}
+  </section>
+);
+
+const Card = ({ children }) => (
+  <div className="rounded-2xl bg-white/70 backdrop-blur shadow-lg shadow-emerald-900/5 ring-1 ring-emerald-500/10 p-6">
+    {children}
+  </div>
+);
+
+const Feature = ({ icon: Icon, title, children }) => (
+  <Card>
+    <div className="flex items-start gap-4">
+      <div className="rounded-xl p-3 bg-emerald-100"><Icon className="w-6 h-6" /></div>
+      <div>
+        <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+        <p className="text-slate-600 leading-relaxed mt-1">{children}</p>
+      </div>
+    </div>
+  </Card>
+);
+
+const Pill = ({ children }) => (
+  <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm bg-white/70 ring-1 ring-emerald-500/30 text-emerald-900 backdrop-blur">
+    <Melon className="w-4 h-4" /> {children}
+  </span>
+);
+
+const TropicalBackdrop = () => (
+  <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    {/* big gradient blobs */}
+    <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-gradient-to-tr from-emerald-300 via-amber-200 to-rose-300 blur-3xl opacity-60" />
+    <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-gradient-to-tl from-emerald-400 via-teal-200 to-lime-200 blur-3xl opacity-60" />
+    {/* subtle grid */}
+    <svg className="absolute inset-0 w-full h-full opacity-[0.08]" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+          <path d="M36 0H0V36" stroke="#064e3b" strokeWidth="1" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+    {/* floating melon slices */}
+    <div className="absolute left-8 top-20 opacity-70 rotate-6"><MelonSlice className="w-16 h-16" /></div>
+    <div className="absolute right-16 top-32 opacity-70 -rotate-6"><MelonSlice className="w-14 h-14" /></div>
+    <div className="absolute left-1/3 bottom-10 opacity-60 rotate-3"><MelonSlice className="w-12 h-12" /></div>
+  </div>
+);
+
+const Hero = () => (
+  <Section id="home" className="pt-28 pb-24">
+    <TropicalBackdrop />
+    <div className="container mx-auto px-6">
+      <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <Pill>Meloen Roleplay – Tropische RP Stad</Pill>
+          <h1 className="mt-5 text-4xl md:text-5xl/tight font-black tracking-tight text-slate-900">
+            Welkom in <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-lime-600 to-rose-600">Meloen Roleplay</span>
+          </h1>
+          <p className="mt-4 text-slate-600 text-lg leading-relaxed max-w-xl">
+            Een frisse, zomerse FiveM ervaring met een unieke mix van realisme en fun. Volledig opnieuw aangekleed in <b>meloen vibes</b> 🍉: tropische kleuren, zachte animaties, exclusieve jobs, en een huizen- & economie‑setup die je nergens anders ziet.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#discord" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">
+              <Send className="w-5 h-5" /> Join Discord
+            </a>
+            <a href="#regels" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-white ring-1 ring-emerald-500/40 text-emerald-900 font-semibold hover:ring-emerald-600/50 transition">
+              <Shield className="w-5 h-5" /> Bekijk APV
+            </a>
+          </div>
+          <div className="mt-6 flex items-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2"><Users className="w-4 h-4" /> Actieve staff & community</div>
+            <div className="flex items-center gap-2"><Heart className="w-4 h-4" /> Fair & fun RP
             </div>
+          </div>
+        </motion.div>
+        <motion.div className="relative" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.05 }}>
+          <div className="aspect-[4/3] rounded-3xl ring-1 ring-emerald-500/30 bg-gradient-to-br from-emerald-50 via-amber-50 to-rose-50 p-4 shadow-xl">
+            <div className="grid grid-cols-3 grid-rows-3 gap-4 w-full h-full">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <div key={i} className="rounded-2xl bg-white/70 backdrop-blur ring-1 ring-emerald-400/20 flex items-center justify-center">
+                  <MelonSlice className="w-16 h-16" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-2 shadow ring-1 ring-emerald-500/20 text-sm">
+            Tropische make‑over ✓
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </Section>
+);
+
+const Nav = () => (
+  <header className="fixed top-0 inset-x-0 z-50">
+    <div className="mx-auto max-w-7xl px-6">
+      <div className="mt-4 backdrop-blur bg-white/70 rounded-2xl border border-emerald-500/20 shadow-sm">
+        <nav className="flex items-center justify-between px-4 py-3">
+          <a href="#home" className="flex items-center gap-2 font-extrabold text-slate-900">
+            <Melon className="w-6 h-6 text-emerald-600" /> Meloen RP
+          </a>
+          <div className="hidden md:flex items-center gap-6">
+            <NavLink href="#home">Home</NavLink>
+            <NavLink href="#store">Store</NavLink>
+            <NavLink href="#regels">Regels</NavLink>
+            <NavLink href="#solliciteren">Solliciteren</NavLink>
+            <NavLink href="#discord">Discord</NavLink>
+          </div>
+          <a href="#dashboard" className="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-700 transition">
+            <Rocket className="w-4 h-4" /> Dashboard
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+);
+
+const Features = () => (
+  <Section id="features" className="bg-gradient-to-b from-white to-emerald-50/40">
+    <div className="container mx-auto px-6">
+      <div className="max-w-3xl">
+        <h2 className="text-3xl font-bold text-slate-900">Waarom <span className="text-emerald-700">Meloen Roleplay</span> uniek is</h2>
+        <p className="mt-3 text-slate-600">Geen copy‑paste – maar liefdevol met de hand ontworpen systemen die je roleplay méér diepgang geven.</p>
+      </div>
+      <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Feature icon={Hammer} title="Wapen- & drugsloodsen">
+          Dynamische productie met personeelsbeheer, levels en dashboards. Uitnodigen, instellen, controleren – jij runt het.
+        </Feature>
+        <Feature icon={Plane} title="Pilotenjob met 7 vliegvelden">
+          Vervoer passagiers & cargo, plan routes en maak carrière. Bonus voor on-time landingen.
+        </Feature>
+        <Feature icon={Map} title="Echte wereld vol shortcuts">
+          Bruggen, tunnels, liften en bergpaden – slimme routes voor politie & criminelen.
+        </Feature>
+        <Feature icon={Camera} title="Fotogenieke stad">
+          Tropische shaders, zachte highlights en vrolijke UI. Screenshots lijken vakantiefoto’s.
+        </Feature>
+        <Feature icon={Users} title="Community‑eerst">
+          Actieve staff, duidelijke APV en wachtruimte i.p.v. ticketspam. Respect = standaard.
+        </Feature>
+        <Feature icon={ExternalLink} title="Open API voor partners">
+          Optioneel: whitelist‑koppelingen en analytics voor events en gangs.
+        </Feature>
+      </div>
+    </div>
+  </Section>
+);
+
+const Store = () => (
+  <Section id="store">
+    <div className="container mx-auto px-6">
+      <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 className="text-3xl font-bold text-slate-900">🍉 Meloen Store</h2>
+          <p className="mt-3 text-slate-600">Support de stad op een eerlijke manier. Geen pay‑to‑win; cosmetisch & quality‑of‑life only. Donaties gaan naar servers, assets en events.</p>
+          <div className="mt-6 flex gap-3">
+            <a href="#" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">
+              <ShoppingCartIcon /> Open Store
+            </a>
+            <a href="#regels" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-white ring-1 ring-emerald-500/40 text-emerald-900 font-semibold hover:ring-emerald-600/50 transition">
+              <Shield className="w-5 h-5" /> Lees anti‑IRL policy
+            </a>
+          </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <!-- Home Sectie -->
-        <section id="home" class="melon-card p-8 mb-8">
-            <h2 class="text-3xl font-bold mb-6 text-green-700">🍉 Meloen Roleplay – De meest unieke stad ter wereld! 🍉</h2>
-            <p class="mb-4 text-gray-700">*Geen standaard copy-paste stad, maar écht uniek!*</p>
-            <blockquote class="mb-4 text-gray-600">
-                <p>🔹 <strong>Wapenloodsen</strong> – Maak je eigen wapens en neem personeel in dienst.</p>
-                <p>🔹 <strong>Unieke drugsloodsen</strong> – Groeien mee met jouw level! Huur mensen in en check via de computer precies wie hoeveel werk verricht. *(uniek in zijn soort)*</p>
-                <p>🔹 <strong>Autodealersysteem</strong> – Niet alleen een cardealer & luxury shop, maar ook een echte <strong>2e hands dealer op 4024</strong>! Een gezellige plek om auto’s te scoren of te verkopen.</p>
-                <p>🔹 <strong>Piloot-job</strong> – Breng en haal passagiers naar één van de <strong>7 vliegvelden</strong> en verdien hier goed mee.</p>
-                <p>🔹 <strong>Parachute/Basejump locaties</strong> – Spring via gele parachute spots de lucht in en vlieg overal naartoe waar jij wilt!</p>
-            </blockquote>
-
-            <h3 class="text-2xl font-bold mb-4 text-green-600">🔷 Huizensysteem – nergens zo uniek als in Meloen!</h3>
-            <p class="mb-4 text-gray-700">👉 <em>ELK huis dat je kent uit GTA is bewoonbaar!</em> 🏠</p>
-            <p class="mb-4 text-gray-700">Alle huizen, villa’s en appartementen die normaal gesloten zijn in andere steden, zijn bij ons <strong>wel open</strong>.</p>
-            <ul class="list-disc pl-5 mb-4 text-gray-700">
-                <li>✅ Koop jij een woning? Dan blijft dit huis ook écht van jou – zelfs als je niet in de stad bent.</li>
-                <li>✅ Nooit meerdere spelers in hetzelfde pand!</li>
-                <li>✅ Geef vrienden sleutels of ontvang spullen via je brievenbus.</li>
-                <li>🏡 Beschikbare huizen = <strong>witte blipjes op de map</strong>.</li>
-                <li>📅 Elke dag komen er nieuwe huizen vrij van spelers die langer dan een jaar inactief zijn geweest.</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold mb-4 text-green-600">🍉 Extra Unieke Features 🍉</h3>
-            <blockquote class="mb-4 text-gray-600">
-                <p>🔹 Actieve <strong>Staff leden</strong> met een <strong>wachtkamer systeem</strong> (geen irritante tickets meer).</p>
-                <p>🔹 <strong>M.A.R.S.O.F. (Special Forces)</strong> leger.</p>
-                <p>🔹 Tunnels dwars door bergen heen.</p>
-                <p>🔹 Bruggen naar het eiland.</p>
-                <p>🔹 Nieuw mega-eiland in het noorden.</p>
-                <p>🔹 Bruggen over het grote meer.</p>
-                <p>🔹 Lift naar bovenop de Maze Bank.</p>
-                <p>🔹 Skilift naar Mount Chiliad.</p>
-                <p>🔹 Treinstations én de mogelijkheid om door de stad te reizen met de trein. 🚉</p>
-            </blockquote>
-
-            <h2 class="text-3xl font-bold mb-6 text-green-700">🍉 Meloen Roleplay is écht uniek en biedt ongeëvenaarde features die je nergens anders zult vinden. 🍉</h2>
-            <p class="text-gray-700">🍉 <em>En geloof ons, daar zijn we knettertrots op!</em> 🍉</p>
-            <p class="text-gray-700">📸 <strong>Check de foto’s hierboven</strong> …en zie direct dingen die je nooit eerder hebt gezien!</p>
-            <p class="text-gray-700">***Meloen Groet!*** 🍉</p>
-        </section>
-
-        <!-- Regels Sectie -->
-        <section id="regels" class="melon-card p-8 mb-8">
-            <h2 class="text-3xl font-bold mb-6 text-green-700">Reglement Meloen Roleplay</h2>
-            <p class="mb-4 text-gray-700">Hieronder vind je de regels die gelden op Meloen Roleplay. Lees deze zorgvuldig door om een plezierige ervaring voor iedereen te waarborgen.</p>
-            <p>De regels zijn hetzelfde als eerder vermeld, dus behoud de regels zoals ze zijn.</p>
-        </section>
-
-        <!-- Solliciteren Sectie -->
-        <section id="solliciteren" class="melon-card p-8 mb-8">
-            <h2 class="text-3xl font-bold mb-6 text-green-700">Solliciteren</h2>
-            <p class="mb-6 text-gray-700">Solliciteer voor een van onze functies en word onderdeel van het Meloen Roleplay team!</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- KMAR -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Koninklijke Marechaussee</h3>
-                    <p class="mb-4 text-gray-700">Word lid van onze Koninklijke Marechaussee en help onze stad veilig te houden.</p>
-                    <a href="#kmar-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Politie -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Politie</h3>
-                    <p class="mb-4 text-gray-700">Word een agent en handhaaf de wet in onze stad.</p>
-                    <a href="#politie-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Ambulance -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Ambulance</h3>
-                    <p class="mb-4 text-gray-700">Help mensen in nood als ambulancemedewerker.</p>
-                    <a href="#ambulance-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Advocatuur -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Advocatuur</h3>
-                    <p class="mb-4 text-gray-700">Verdedig burgers in rechtszaken als advocaat.</p>
-                    <a href="#advocatuur-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Journalist -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Journalist</h3>
-                    <p class="mb-4 text-gray-700">Breng het laatste nieuws naar onze burgers.</p>
-                    <a href="#journalist-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Pechhulp -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Pechhulp</h3>
-                    <p class="mb-4 text-gray-700">Help burgers met pech langs de weg.</p>
-                    <a href="#pechhulp-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-
-                <!-- Staff -->
-                <div class="melon-card p-6 flex flex-col">
-                    <h3 class="text-xl font-bold text-green-700">Staff</h3>
-                    <p class="mb-4 text-gray-700">Word stafflid en help onze server draaiende te houden.</p>
-                    <a href="#staff-sollicitatie" class="melon-btn mt-auto py-2 text-center rounded-lg">Solliciteren</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="melon-gradient py-12 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 flex items-center">
-                    <img src="https://media.discordapp.net/attachments/1272505648570957848/1406287865800949892/cd1e20ab-3800-4c03-91c1-e64cd918ac01.png?ex=68a1eb22&is=68a099a2&hm=51e5502bd9764bf5e2ecc0f7ddc7323467d3a057dfe92a81387f386313c17d95&=&format=webp&quality=lossless&width=100&height=100" 
-                         alt="Meloen Roleplay Footer Logo" 
-                         class="h-12 w-12 mr-4">
-                    <p class="text-white font-bold text-xl">Meloen Roleplay</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://discord.gg/TCVfz6eK47" class="text-white hover:text-yellow-200">Discord</a>
-                    <a href="https://discord.gg/a52ft7qtpS" class="text-white hover:text-yellow-200">Support</a>
-                    <a href="#" class="text-white hover:text-yellow-200">Privacybeleid</a>
-                    <a href="#" class="text-white hover:text-yellow-200">Contact</a>
-                </div>
-            </div>
-            <div class="border-t border-green-300 mt-8 pt-8 text-center">
-                <p class="text-white">© 2024 Meloen Roleplay. Alle rechten voorbehouden.</p>
-            </div>
+        <div className="rounded-3xl p-4 ring-1 ring-emerald-400/30 bg-gradient-to-br from-emerald-50 via-white to-amber-50 shadow-xl">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              { t: "Cosmetics", d: "Skins, emotes, plates" },
+              { t: "QoL", d: "Huis slots, opslag" },
+              { t: "Events", d: "Seizoensuitbreidingen" },
+            ].map((x, i) => (
+              <Card key={i}>
+                <h4 className="font-semibold text-slate-900">{x.t}</h4>
+                <p className="text-sm text-slate-600 mt-1">{x.d}</p>
+              </Card>
+            ))}
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </Section>
+);
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('button[class*="md:hidden"]').addEventListener('click', function() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('hidden');
-            nav.classList.toggle('flex');
-            nav.classList.toggle('flex-col');
-            nav.classList.toggle('absolute');
-            nav.classList.toggle('top-16');
-            nav.classList.toggle('right-4');
-            nav.classList.toggle('bg-green-700');
-            nav.classList.toggle('p-4');
-            nav.classList.toggle('rounded-lg');
-            nav.classList.toggle('shadow-xl');
-            nav.classList.toggle('space-y-4');
-            nav.classList.toggle('space-x-0');
-        });
-    </script>
-</body>
-</html>
+const ShoppingCartIcon = () => <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>;
+
+const Regels = () => (
+  <Section id="regels" className="bg-emerald-50/50">
+    <div className="container mx-auto px-6">
+      <div className="max-w-3xl">
+        <h2 className="text-3xl font-bold text-slate-900">APV – Meloen Roleplay</h2>
+        <p className="mt-3 text-slate-600">Heldere regels voor vlot, eerlijk en plezierig roleplay. Hieronder een korte samenvatting; de volledige APV staat in het Dashboard.</p>
+      </div>
+      <div className="mt-8 grid md:grid-cols-2 gap-6">
+        <Card>
+          <h3 className="font-semibold text-slate-900">RDM/VDM</h3>
+          <p className="text-slate-600 mt-1">Geen geweld zonder duidelijke RP‑aanleiding. Verkeersongevallen ≠ VDM. Overtredingen schalen snel in strafmaat.</p>
+        </Card>
+        <Card>
+          <h3 className="font-semibold text-slate-900">FailRP & Powergaming</h3>
+          <p className="text-slate-600 mt-1">Geen onrealistische acties, geen misbruik van mechanics. Speel het uit alsof het echt is – of laat het.</p>
+        </Card>
+        <Card>
+          <h3 className="font-semibold text-slate-900">NVOL</h3>
+          <p className="text-slate-600 mt-1">Leef alsof je leven telt. Onder schot? Handel daarnaar. Porto/knop misbruik = straf.</p>
+        </Card>
+        <Card>
+          <h3 className="font-semibold text-slate-900">Meta/Stream</h3>
+          <p className="text-slate-600 mt-1">Geen OOC info gebruiken. Geen streams snipen. In‑game = in‑game.</p>
+        </Card>
+        <Card>
+          <h3 className="font-semibold text-slate-900">Scam Policy</h3>
+          <p className="text-slate-600 mt-1">Eerlijk handelen. Voertuigen/giftcards scammen = verboden. Geld‑/itemlimieten en wraak in RP binnen 24u.</p>
+        </Card>
+        <Card>
+          <h3 className="font-semibold text-slate-900">Onderwereld</h3>
+          <p className="text-slate-600 mt-1">Rippen alleen met geldige reden; greenzones en ziekenhuizen = safe. Gijzelen WH‑jobs verboden.</p>
+        </Card>
+      </div>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a href="#dashboard" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">
+          <Download className="w-5 h-5" /> Volledige APV openen
+        </a>
+        <a href="#solliciteren" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-white ring-1 ring-emerald-500/40 text-emerald-900 font-semibold hover:ring-emerald-600/50 transition">
+          <MessageCircle className="w-5 h-5" /> Vragen? Neem contact op
+        </a>
+      </div>
+    </div>
+  </Section>
+);
+
+const Gallery = () => (
+  <Section id="gallery">
+    <div className="container mx-auto px-6">
+      <div className="flex items-end justify-between">
+        <div>
+          <h2 className="text-3xl font-bold text-slate-900">Screenshots & vibe</h2>
+          <p className="mt-2 text-slate-600">Geen stockfoto’s: pure meloen‑esthetiek met zachte tropische kleuren.</p>
+        </div>
+        <a href="#" className="text-emerald-700 font-semibold hover:underline">Upload jouw shots →</a>
+      </div>
+      <div className="mt-8 grid md:grid-cols-3 gap-6">
+        {["Zonnige boulevard","Maze Bank Skydeck","Nieuwe eilandbrug","Treinstation vibe","Tunnels door bergen","Basejump spot"].map((t, i) => (
+          <div key={i} className="group relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20 bg-gradient-to-br from-emerald-100 via-amber-100 to-rose-100 shadow-lg">
+            <div className="aspect-[4/3]" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+              <span className="font-semibold drop-shadow">{t}</span>
+              <MelonSlice className="w-8 h-8 opacity-90" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+);
+
+const Solliciteren = () => (
+  <Section id="solliciteren" className="bg-gradient-to-b from-white to-emerald-50/60">
+    <div className="container mx-auto px-6">
+      <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="text-3xl font-bold text-slate-900">Solliciteren & Whitelist</h2>
+          <p className="mt-3 text-slate-600">Word deel van onze community. Overheid, hulpdiensten of staff – we hebben plek voor gemotiveerde mensen die kwaliteit en gezelligheid brengen.</p>
+          <ul className="mt-4 space-y-2 text-slate-700 list-disc list-inside">
+            <li>Politie / KMAR / M.A.R.S.O.F.</li>
+            <li>Ambulance & ANWB</li>
+            <li>Taxi & Advocatuur</li>
+            <li>Event‑team & QA‑testers</li>
+          </ul>
+          <div className="mt-6 flex gap-3">
+            <a href="#" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">
+              <Send className="w-5 h-5" /> Verstuur sollicitatie
+            </a>
+            <a href="#discord" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-white ring-1 ring-emerald-500/40 text-emerald-900 font-semibold hover:ring-emerald-600/50 transition">
+              <Users className="w-5 h-5" /> Stel eerst vragen
+            </a>
+          </div>
+        </div>
+        <div className="rounded-3xl p-6 ring-1 ring-emerald-400/30 bg-white/70 backdrop-blur shadow-xl">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: "Heldere proces", desc: "Snelle review & feedback" },
+              { title: "Mentors", desc: "Inwerktraject met buddy" },
+              { title: "Tools", desc: "Dashboards & gidsen" },
+              { title: "Events", desc: "Regelmatig acties & RP" },
+            ].map((x, i) => (
+              <Card key={i}>
+                <h4 className="font-semibold text-slate-900">{x.title}</h4>
+                <p className="text-sm text-slate-600 mt-1">{x.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+);
+
+const Discord = () => (
+  <Section id="discord">
+    <div className="container mx-auto px-6">
+      <div className="text-center max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold text-slate-900">Discord & Support</h2>
+        <p className="mt-3 text-slate-600">Alles start in de Discord: whitelists, updates, guides en support.
+        
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="#" className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700 transition">
+            <ExternalLink className="w-5 h-5" /> Join Discord
+          </a>
+          <a href="#" className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 bg-white ring-1 ring-emerald-500/40 text-emerald-900 font-semibold hover:ring-emerald-600/50 transition">
+            <MessageCircle className="w-5 h-5" /> Support & regels
+          </a>
+        </div>
+      </div>
+    </div>
+  </Section>
+);
+
+const Footer = () => (
+  <footer className="relative mt-16">
+    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-emerald-100/70 to-transparent" />
+    <div className="container mx-auto px-6 py-12">
+      <div className="grid md:grid-cols-4 gap-8">
+        <div>
+          <div className="flex items-center gap-2 font-extrabold text-slate-900">
+            <Melon className="w-6 h-6 text-emerald-700" /> Meloen Roleplay
+          </div>
+          <p className="mt-3 text-slate-600 text-sm">Een tropische, eerlijke en moderne RP‑ervaring. Gemaakt met liefde voor de community.
+          </p>
+        </div>
+        <div>
+          <h4 className="font-semibold text-slate-900">Algemeen</h4>
+          <ul className="mt-2 space-y-2 text-slate-600 text-sm">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#store" className="hover:underline">Store</a></li>
+            <li><a href="#regels" className="hover:underline">Regels</a></li>
+            <li><a href="#solliciteren" className="hover:underline">Solliciteren</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold text-slate-900">Overheid</h4>
+          <ul className="mt-2 space-y-2 text-slate-600 text-sm">
+            <li>Politie</li>
+            <li>ANWB</li>
+            <li>Ambulance</li>
+            <li>KMAR</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold text-slate-900">Social</h4>
+          <ul className="mt-2 space-y-2 text-slate-600 text-sm">
+            <li><a href="#discord" className="hover:underline">Discord</a></li>
+            <li><a href="#" className="hover:underline">Support</a></li>
+            <li><a href="#" className="hover:underline">Onderwereld</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-8 pt-6 border-t border-emerald-500/20 flex items-center justify-between text-sm text-slate-500">
+        <p>© {new Date().getFullYear()} Meloen Roleplay. Alle rechten voorbehouden.</p>
+        <a href="#" className="hover:underline">APV & Privacy</a>
+      </div>
+    </div>
+  </footer>
+);
+
+export default function App() {
+  return (
+    <div className="min-h-screen font-sans bg-white text-slate-900">
+      <Nav />
+      <main>
+        <Hero />
+        <Features />
+        <Store />
+        <Gallery />
+        <Regels />
+        <Solliciteren />
+        <Discord />
+      </main>
+      <Footer />
+    </div>
+  );
+}
